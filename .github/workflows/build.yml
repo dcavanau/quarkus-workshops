@@ -32,17 +32,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_API_TOKEN }}
         run: |  
-          sudo apt-get install graphviz
+          # sudo apt-get install graphviz
+          brew install graphviz
 
-          git config --global user.email "clement@apache.org"
-          git config --global user.name "Clement Escoffier"
+          git config --global user.email "dcavanau@us.ibm.com"
+          git config --global user.name "David Cavanaugh"
 
           cd quarkus-workshop-super-heroes/docs      
           export old=`pwd`
           mvn install
           cd /tmp
           rm -fR /tmp/quarkus-workshops
-          git clone https://cescoffier:${GITHUB_TOKEN}@github.com/quarkusio/quarkus-workshops.git
+          git clone https://dcavanau:${GITHUB_TOKEN}@github.com/quarkusio/quarkus-workshops.git
           cd quarkus-workshops
           git checkout gh-pages
           cd $old
