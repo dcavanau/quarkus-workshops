@@ -76,8 +76,8 @@ If you are using Mac OS X make sure the version is greater than 10.11.x (Captain
 This workshop will make use of the following software, tools, frameworks that you will need to install and now (more or less) how it works:
 
 * Any IDE you feel comfortable with (eg. Intellij IDEA, Eclipse IDE, VS Code..)
-* JDK 8
-* GraalVM 19.2.1 or 19.3.1
+* JDK {jdk-version}
+* GraalVM {graalvm-version}
 * Maven 3.6.x
 * Docker
 * cURL (or any other command line HTTP client)
