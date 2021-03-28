@@ -17,7 +17,7 @@ Instead of the Oracle distribution, you can use AdoptOpenJDK and download the JD
 Follows the instructions from https://adoptopenjdk.net/installation.html to download and install the JDK for your platform.
 
 There is also an easier way to download and install Java if you are on Mac OS X.
-You can use Homebrew to install JDK jdk-version using the following commands.footnote:[Homebrew https://brew.sh]
+You can use Homebrew to install JDK {jdk-version} using the following commands.footnote:[Homebrew https://brew.sh]
 
 [source,shell]
 ----
