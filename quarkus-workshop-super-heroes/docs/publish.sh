@@ -9,7 +9,7 @@ mvn install
 #publish doc
 cd /tmp
 rm -fR /tmp/quarkus-workshops
-git clone git@github.com:quarkusio/quarkus-workshops.git
+git clone git@github.com:dcavanau/quarkus-workshops.git
 cd quarkus-workshops
 git checkout gh-pages
 cd $old
