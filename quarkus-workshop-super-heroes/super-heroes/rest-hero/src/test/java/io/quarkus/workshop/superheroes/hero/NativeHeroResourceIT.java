@@ -1,4 +1,3 @@
-// tag::adocResourceIT[]
 package io.quarkus.workshop.superheroes.hero;
 
 import io.quarkus.test.common.QuarkusTestResource;
@@ -41,7 +40,6 @@ public class NativeHeroResourceIT {
 
     private static String heroId;
 
-    // tag::adocOpenAPI[]
     @Test
     void shouldPingOpenAPI() {
         given()
@@ -51,36 +49,8 @@ public class NativeHeroResourceIT {
             .statusCode(OK.getStatusCode());
     }
 
-    // end::adocOpenAPI[]
 
-    // tag::adocHealth[]
-    @Test
-    void shouldPingLiveness() {
-        given()
-            .when().get("/health/live")
-            .then()
-            .statusCode(OK.getStatusCode());
-    }
 
-    @Test
-    void shouldPingReadiness() {
-        given()
-            .when().get("/health/ready")
-            .then()
-            .statusCode(OK.getStatusCode());
-    }
-    // end::adocHealth[]
-
-    // tag::adocMetrics[]
-    @Test
-    void shouldPingMetrics() {
-        given()
-            .header(ACCEPT, APPLICATION_JSON)
-            .when().get("/metrics/application")
-            .then()
-            .statusCode(OK.getStatusCode());
-    }
-    // end::adocMetrics[]
 
     @Test
     public void testHelloEndpoint() {
@@ -230,4 +200,3 @@ public class NativeHeroResourceIT {
     }
 
 }
-// end::adocResourceIT[]

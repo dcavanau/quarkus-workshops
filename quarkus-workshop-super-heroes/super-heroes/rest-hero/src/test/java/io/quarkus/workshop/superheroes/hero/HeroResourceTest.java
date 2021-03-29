@@ -1,4 +1,3 @@
-// tag::adocResourceTest[]
 package io.quarkus.workshop.superheroes.hero;
 
 import io.quarkus.test.common.QuarkusTestResource;
@@ -43,53 +42,8 @@ public class HeroResourceTest {
     private static final int NB_HEROES = 951;
     private static String heroId;
 
-    // tag::adocOpenAPI[]
-    @Test
-    void shouldPingOpenAPI() {
-        given()
-            .header(ACCEPT, APPLICATION_JSON)
-            .when().get("/openapi")
-            .then()
-            .statusCode(OK.getStatusCode());
-    }
 
-    @Test
-    void shouldPingSwaggerUI() {
-        given()
-            .when().get("/swagger-ui")
-            .then()
-            .statusCode(OK.getStatusCode());
-    }
-    // end::adocOpenAPI[]
 
-    // tag::adocHealth[]
-    @Test
-    void shouldPingLiveness() {
-        given()
-            .when().get("/health/live")
-            .then()
-            .statusCode(OK.getStatusCode());
-    }
-
-    @Test
-    void shouldPingReadiness() {
-        given()
-            .when().get("/health/ready")
-            .then()
-            .statusCode(OK.getStatusCode());
-    }
-    // end::adocHealth[]
-
-    // tag::adocMetrics[]
-    @Test
-    void shouldPingMetrics() {
-        given()
-            .header(ACCEPT, APPLICATION_JSON)
-            .when().get("/metrics/application")
-            .then()
-            .statusCode(OK.getStatusCode());
-    }
-    // end::adocMetrics[]
 
     @Test
     public void testHelloEndpoint() {
@@ -242,10 +196,41 @@ public class HeroResourceTest {
         assertEquals(NB_HEROES, heroes.size());
     }
 
-    private TypeRef<List<Hero>> getHeroTypeRef() {
+    @Test
+    @Order(5)
+    void shouldPingOpenAPI() {
+        given()
+            .header(ACCEPT, APPLICATION_JSON)
+            .when().get("/openapi")
+            .then()
+            .statusCode(OK.getStatusCode());
+    }
+    
+    @Test
+    @Order(6)
+    void shouldPingSwaggerUI() {
+        given()
+            .when().get("/swagger-ui")
+            .then()
+            .statusCode(OK.getStatusCode());
+    }   private TypeRef<List<Hero>> getHeroTypeRef() {
         return new TypeRef<List<Hero>>() {
             // Kept empty on purpose
         };
     }
-}
-// end::adocResourceTest[]
+
+    @Test
+    void shouldPingLiveness() {
+        given()
+            .when().get("/health/live")
+            .then()
+            .statusCode(OK.getStatusCode());
+    }
+    
+    @Test
+    void shouldPingReadiness() {
+        given()
+            .when().get("/health/ready")
+            .then()
+            .statusCode(OK.getStatusCode());
+    }}

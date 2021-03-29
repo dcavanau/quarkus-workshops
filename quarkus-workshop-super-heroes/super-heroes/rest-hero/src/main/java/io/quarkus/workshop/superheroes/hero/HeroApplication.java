@@ -1,4 +1,3 @@
-// tag::adocApplication[]
 package io.quarkus.workshop.superheroes.hero;
 
 import org.eclipse.microprofile.openapi.annotations.ExternalDocumentation;
@@ -28,4 +27,3 @@ import javax.ws.rs.core.Application;
 )
 public class HeroApplication extends Application {
 }
-// end::adocApplication[]
