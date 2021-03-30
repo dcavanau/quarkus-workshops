@@ -1,5 +1,6 @@
 = Quarkus Workshop
 Emmanuel Bernard, Clement Escoffier, Antonio Goncalves
+modified by David Cavanaugh
 :data-uri:
 :doctype: book
 :imagesdir: ./images
