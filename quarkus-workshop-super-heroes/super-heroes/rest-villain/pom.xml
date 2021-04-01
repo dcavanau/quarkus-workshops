@@ -1,10 +1,15 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>io.quarkus.workshop.super-heroes</groupId>
   <artifactId>rest-villain</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <name>Quarkus Workshop :: Super-Heroes :: Hero REST API</name>
+
+  <!-- tag::adocProperties[] -->
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -18,6 +23,9 @@
     <quarkus.platform.version>1.13.0.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
   </properties>
+  <!-- end::adocProperties[] -->
+
+  <!-- tag::adocDependencyManagement[] -->
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -29,15 +37,20 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <!-- end::adocDependencyManagement[] -->
+
+  <!-- tag::adocDependency[] -->
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>
+    <!-- tag::adocDependencyResteasy[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
+    <!-- end::adocDependencyResteasy[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -48,6 +61,13 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- tag::adocDependencyResteasyJsonB[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
+    <!-- end::adocDependencyResteasyJsonB[] -->
+    <!-- tag::adocDependencyPostgresql[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm-panache</artifactId>
@@ -58,12 +78,9 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-postgresql</artifactId>
     </dependency>
+    <!-- end::adocDependencyPostgresql[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
@@ -91,6 +108,8 @@
       <version>1.15.2</version>
     </dependency>
   </dependencies>
+  <!-- end::adocDependency[] -->
+
   <build>
     <plugins>
       <plugin>
