@@ -2,10 +2,13 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>io.quarkus.workshop.super-heroes</groupId>
   <artifactId>rest-hero</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>Quarkus Workshop :: Super-Heroes :: Hero REST API</name>
+
+  <!-- tag::adocProperties[] -->
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -19,6 +22,9 @@
     <quarkus.platform.version>1.13.0.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
   </properties>
+  <!-- end::adocProperties[] -->
+
+  <!-- tag::adocDependencyManagement[] -->
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -30,20 +36,21 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <!-- end::adocDependencyManagement[] -->
+
+  <!-- tag::adocDependency[] -->
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>
+    <!-- tag::adocDependencyResteasy[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>
     </dependency>
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
-      <scope>test</scope>
-    </dependency>
+    <!-- end::adocDependencyResteasy[] -->
+    <!-- tag::adocDependencyPostgresql[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm-panache</artifactId>
@@ -54,21 +61,58 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-postgresql</artifactId>
     </dependency>
+    <!-- end::adocDependencyPostgresql[] -->
+    <!-- tag::adocDependencyResteasyJsonB[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
+    <!-- end::adocDependencyResteasyJsonB[] -->
+    <!-- tag::adocDependencyOpenAPI[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
+    <!-- end::adocDependencyOpenAPI[] -->
+    <!-- tag::adocDependencyHealth[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
+    </dependency>
+    <!-- end::adocDependencyHealth[] -->
+    <!-- tag::adocDependencyMetrics[] -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-smallrye-metrics</artifactId>
+    </dependency>
+    <!-- end::adocDependencyMetrics[] -->
+    <!-- end::adocDependency[] -->
+
+    <!-- fault-injection -->
+
+    <!-- Test -->
+    <!-- tag::adocDependencyTest[] -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- end::adocDependencyTest[] -->
+    <!-- tag::adocDependencyTestREST[] -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- end::adocDependencyTestREST[] -->
+    <!-- tag::adocDependencyTestContainers[] -->
     <dependency>
       <groupId>org.testcontainers</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -79,16 +123,10 @@
       <artifactId>postgresql</artifactId>
       <version>1.15.2</version>
     </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-health</artifactId>
-    </dependency>
+    <!-- end::adocDependencyTestContainers[] -->
   </dependencies>
+
+  <!-- tag::adocBuild[] -->
   <build>
     <plugins>
       <plugin>
@@ -110,6 +148,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${compiler-plugin.version}</version>
       </plugin>
+      <!-- tag::adocBuildSurefire[] -->
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire-plugin.version}</version>
@@ -120,8 +159,11 @@
           </systemPropertyVariables>
         </configuration>
       </plugin>
+      <!-- end::adocBuildSurefire[] -->
     </plugins>
   </build>
+   <!-- end::adocBuild[] -->
+
   <profiles>
     <profile>
       <id>native</id>
