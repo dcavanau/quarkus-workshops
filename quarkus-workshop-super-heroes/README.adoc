@@ -7,16 +7,24 @@ Check https://quarkus.io/quarkus-workshops/super-heros/ to get the workshop inst
 == Generate the documentation
 
 You can either generate the documentation for each exercise or for the entire workshop.
-For that, you just run the Maven command `mvn clean generate-resources` under an `docs` directory.
+For that, you just run the Maven command `mvn clean generate-resources` under the `docs` directory. The `publish.sh`
+command is used to publish the 'docs' directory as a set of gh-pages.
+
+```bash
+cd docs
+mvn clean generate-resources
+./publish.sh
+```
 
 == Start the infrastructure
 
 This workshop requires a couple of extra _technical_ services (databases, kafka...).
 Start them using the `docker-compose.yaml` file located in the `infrastructure` directory:
 
-```
-cd containers
-docker-compose up
+```bash
+cd super-heros
+cd infrastructure
+docker-compose -f docker-compose.yaml up -d
 ```
 
 Stop them using:
@@ -29,8 +37,12 @@ docker-compose rm
 
 == Build
 
+Builds can be done as native builds. The zip file for the workshop can be generated after the builds. If the
+zip file is generated, it will need to be checked into git so it is available from the web pages.
+
 ```bash
-mvn clean install
+mvn clean install -Pnative -Pfull
+mvn assemble:single -N
 ```
 
 == Running the full system
@@ -38,17 +50,32 @@ mvn clean install
 * Run the infrastructure as explained above.
 * In a new terminal, run the heroes microservice
 ```bash
+cd super-heros
 cd rest-hero
 mvn clean compile quarkus:dev
 ```
 * In a new terminal, run the villains microservice
 ```bash
+cd super-heros
 cd rest-villain
 mvn clean compile quarkus:dev
 ```
 * In a new terminal, run the fights microservice
 ```bash
+cd super-heros
 cd rest-fight
+mvn clean compile quarkus:dev
+```
+* In a new terminal, run the super heros UI
+```bash
+cd super-heros
+cd ui-super-heros
+mvn clean compile quarkus:dev
+```
+* In a new terminal, run the event statistics microservice
+```bash
+cd super-heros
+cd event-stastics
 mvn clean compile quarkus:dev
 ```
 
