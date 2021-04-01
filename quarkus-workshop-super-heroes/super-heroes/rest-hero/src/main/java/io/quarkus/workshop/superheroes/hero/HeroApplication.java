@@ -28,4 +28,4 @@ import javax.ws.rs.core.Application;
 )
 public class HeroApplication extends Application {
 }
-// end::adocApplication[
+// end::adocApplication[]
