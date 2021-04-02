@@ -43,7 +43,7 @@ jobs:
           mvn install
           cd /tmp
           rm -fR /tmp/quarkus-workshops
-          git clone https://dcavanau:${GITHUB_TOKEN}@github.com/quarkusio/quarkus-workshops.git
+          git clone https://dcavanau:${GITHUB_TOKEN}@github.com/dcavanau/quarkus-workshops.git
           cd quarkus-workshops
           git checkout gh-pages
           cd $old
