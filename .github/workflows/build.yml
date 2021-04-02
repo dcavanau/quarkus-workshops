@@ -30,7 +30,7 @@ jobs:
           version: '11'
       - name: Site generation
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_API_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |  
           # sudo apt-get install graphviz
           brew install graphviz
