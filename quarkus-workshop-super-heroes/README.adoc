@@ -2,7 +2,7 @@
 
 == Instructions
 
-Check https://quarkus.io/quarkus-workshops/super-heros/ to get the workshop instructions.
+Check https://dcavanau.githui.io/quarkus-workshops/super-heros/ to get the workshop instructions.
 
 == Generate the documentation
 
